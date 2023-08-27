@@ -8,7 +8,7 @@ const Title=()=>{
 }
 const Header=()=>{
     return (
-        <div className="h-24 flex justify-between items-center bg-amber-400 pr-3 sm:pr-8 sm:pl-2 md:pr-4 lg:pr-8 shadow-lg">
+        <div className="h-24 w-[100%] flex justify-between items-center bg-amber-400 pr-3 sm:pr-8 sm:pl-2 md:pr-4 lg:pr-8 shadow-xl fixed top-0 z-50">
             <Title/>
             <div>
                 <ul className="flex gap-3 sm:gap-5 text-white text-lg font-bold tracking-wide md:tracking-widest ">
