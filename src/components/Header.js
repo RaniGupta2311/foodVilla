@@ -1,4 +1,5 @@
 // import Logo from "../utils/images/images";
+import { Link } from "react-router-dom"
 const Title=()=>{
     return (
         <div className="w-24 h-24 flex justify-center items-center">
@@ -13,11 +14,11 @@ const Header=()=>{
             <Title/>
             <div>
                 <ul className="flex gap-3 sm:gap-5 text-white text-lg font-semibold tracking-wide md:tracking-widest ">
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                    <li>Cart</li>
-                    <li>Login</li>
+                    <Link to="/"><li>Home</li></Link>
+                    <Link to="/about"><li>About</li></Link>
+                    <Link to="/contact"><li>Contact</li></Link>
+                    <Link to="/cart"><li>Cart</li></Link>
+                    <Link to="/login"><li>Login</li></Link>
                 </ul>
             </div>
         </div>

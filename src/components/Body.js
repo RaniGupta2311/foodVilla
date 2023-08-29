@@ -2,6 +2,7 @@ import { useState,useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { ALL_RESTAURANT_API, AllRestaurantList } from "../utils/Constants";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 const Body=()=>{
     const [searchText,setSearchText]=useState();
     const [allRestaurants,setAllRestaurants]=useState([]);
@@ -19,9 +20,9 @@ const Body=()=>{
     async function getRestaurant(){
         const data=await fetch(ALL_RESTAURANT_API);
         const json=await data.json();
-        // console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setAllRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        // console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
 
     if(!allRestaurants) return null;
@@ -47,7 +48,7 @@ const Body=()=>{
            <div className="flex flex-wrap justify-center gap-6 p-2 mt-2">
                 {filteredRestaurant.length===0?(<div className="">
                     <h1 className="text-lg md:text-xl">Sorry! No match found your filter.</h1>
-                </div>):(filteredRestaurant.map((restro)=><RestaurantCard {...restro?.info} key={restro?.info?.id}/>))}
+                </div>):(filteredRestaurant.map((restro)=><Link to={"/restaurant/"+restro?.info?.id} key={restro?.info?.id}><RestaurantCard {...restro?.info}/></Link>))}
             </div>
 
         </div>
