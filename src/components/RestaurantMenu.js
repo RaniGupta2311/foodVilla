@@ -1,6 +1,7 @@
 import {useState,useEffect} from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL, RESTAURANT_MENU_API } from "../utils/Constants";
+import FoodItemCard from "./FoodItemCard";
 const RestaurantMenu=()=>{
     const [restaurantDetail,setRestaurantDetail]=useState([]);
     // read dynamic url
@@ -15,16 +16,16 @@ const RestaurantMenu=()=>{
     async function getRestaurantInfo(){
         const data=await fetch(RESTAURANT_MENU_API+resId);
         const json=await data.json();
-        // console.log(json.data.cards);
+        // console.log(json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards[0].card.info);
         setRestaurantDetail(json.data.cards);
     }
 
     // const {name,cuisines,areaName,avgRating,sla,costForTwoMessage}=restaurantDetail[0].card.card.info;
     if(!restaurantDetail) return null;
     return (
-        <div className="absolute top-24 bg-gray-100 w-[100%] min-h-[calc(100vh-6rem)]">
+        <div className="absolute top-24 bg-gray-100 w-[100%] min-h-[calc(100vh-6rem)] flex flex-col items-center">
             {/* <h2>Restaurant Menu</h2> */}
-            <div className="p-1 h-48 bg-gray-600 text-white flex justify-center items-center gap-4">
+            <div className="p-1 h-48 bg-gray-600 text-white flex justify-center items-center gap-4 w-full">
                 <div className="flex justify-center items-center"><img className="h-[10rem] w-60 rounded-md" src={IMG_CDN_URL+restaurantDetail[0]?.card?.card?.info?.cloudinaryImageId}/></div>
                 <div className="max-w-lg justify-between">
                     <h1 className="text-4xl">{restaurantDetail[0]?.card?.card?.info?.name}</h1>
@@ -35,6 +36,18 @@ const RestaurantMenu=()=>{
                         <p>{restaurantDetail[0]?.card?.card?.info?.sla.slaString}</p>
                         <p>{restaurantDetail[0]?.card?.card?.info?.costForTwoMessage}</p>
                     </div>
+                </div>
+            </div>
+
+            <div className="flex flex-col justify-center items-center w-lg md:max-w-3xl pl-1 pr-1">
+
+                <div className="mt-2 mb-5 w-full">
+                    <h1 className="text-lg font-semibold">Recommended <span>{restaurantDetail[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.length}</span></h1>
+                </div>
+
+                <div className="flex flex-col justify-center items-center">
+                  {(restaurantDetail[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards).map((foodItem)=><FoodItemCard {...foodItem?.card?.info} key={foodItem?.card?.info?.id}/>)}
+                  {/* <FoodItemCard {...restaurantDetail[2]?.groupedCard?.cardGroupMap?.REGULAR.cards[2].card.card.itemCards[5].card.info}/> */}
                 </div>
             </div>
         </div>
