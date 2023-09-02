@@ -10,7 +10,7 @@ const About = () => {
       onClick={()=>{
         show==="true"? setShow("false"):setShow("true")
       }}>
-        Show my Profile
+        {show==="true"?"Hide my Profile":"Show my Profile"}
       </button>
       {show==="true" ? <div><Profile /></div> : null}
       <div className="flex flex-col items-center lg:flex-row gap-5 lg:justify-between pl-4 pr-4 lg:pl-8 lg:pr-8 xl:pl-20 xl:pr-20">
