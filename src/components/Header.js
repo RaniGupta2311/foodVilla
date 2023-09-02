@@ -10,10 +10,10 @@ const Title=()=>{
 const Header=()=>{
    
     return (
-        <div className="h-24 w-[100%] flex justify-between items-center bg-amber-400 pr-3 sm:pr-8 sm:pl-2 md:pr-4 lg:pr-8 shadow-xl fixed top-0 z-50">
+        <div className="h-24 w-[100%] flex justify-between items-center bg-amber-400 shadow-xl fixed top-0 z-50 pl-1 pr-1 md:pl-4 md:pr-4 lg:pl-6 lg:pr-6">
             <Title/>
             <div>
-                <ul className="flex gap-1 sm:gap-5 text-white text-lg font-semibold tracking-wide md:tracking-widest ">
+                <ul className="flex md:gap-3 xl:gap-5 text-white text-lg font-semibold tracking-wide md:tracking-widest ">
                     <Link to="/"><li className="hover:bg-gray-400 pl-2 pr-2 pt-1 pb-1 rounded-md">Home</li></Link>
                     <Link to="/about"><li className="hover:bg-gray-400 pl-2 pr-2 pt-1 pb-1 rounded-md">About</li></Link>
                     <Link to="/contact"><li className="hover:bg-gray-400 pl-2 pr-2 pt-1 pb-1 rounded-md">Contact</li></Link>
