@@ -1,6 +1,7 @@
 export const IMG_CDN_URL="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/";
 export const ALL_RESTAURANT_API="https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4400802&lng=78.3489168&page_type=DESKTOP_WEB_LISTING";
 export const RESTAURANT_MENU_API="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.4400802&lng=78.3489168&&submitAction=ENTER&restaurantId=";
+export const GITHUB_USER_INFO_API="https://api.github.com/users/RaniGupta2311";
 export const AllRestaurantList=[
     {
       "info": {

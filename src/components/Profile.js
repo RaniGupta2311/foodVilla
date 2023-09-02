@@ -11,8 +11,11 @@ const Profile = () => {
         <img
           src={SelfImage}
           alt="self-image"
-          className="rounded-[100%] w-40 h-40 p-2 mt-4 mb-4 shadow-sm"
+          className="rounded-[100%] w-40 h-40 p-2 mt-4 mb-2 shadow-sm"
         />
+        <h2 className="font-medium text-lg text-gray-900 text-center">
+          Rani Gupta
+        </h2>
         <h2 className="font-light text-gray-700 mt-4 text-center">
           React.js | JavaScript | ES6 | Redux | HTML5 | CSS3
         </h2>
@@ -21,7 +24,7 @@ const Profile = () => {
         </h3>
         <div className="mt-3 mb-5 p-2 flex justify-center items-center gap-5">
           <Link to="https://www.linkedin.com/in/rani-gupta-366873198/">
-            <div className="w-14 h-14 bg-[#0865cf] rounded-[100%] hover:cursor-pointer">
+            <div className="w-14 h-14 bg-[#0551a9dc] rounded-[100%] hover:cursor-pointer">
               <img src={LinkedIn} alt="linkedIn" className="rounded-[100%]" />
             </div>
           </Link>

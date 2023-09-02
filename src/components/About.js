@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Profile from "./Profile";
+import Profile from "./ProfileClass";
 import { Outlet } from "react-router-dom";
 import Burger from "../utils/images/Burger.jpeg";
 const About = () => {
