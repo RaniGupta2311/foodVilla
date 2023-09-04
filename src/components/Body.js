@@ -8,7 +8,7 @@ const Body=()=>{
     const [allRestaurants,setAllRestaurants]=useState([]);
     const [filteredRestaurant,setFilteredRestaurant]=useState([]);
 
-    const filterRestaurant=(searchText,restaurants)=>{
+    const filterRestaurant=(searchText,allRestaurants)=>{
         return allRestaurants.filter((restro)=>restro?.info?.name.toLowerCase().includes(searchText.toLowerCase()));
         
     }
@@ -20,7 +20,7 @@ const Body=()=>{
     async function getRestaurant(){
         const data=await fetch(ALL_RESTAURANT_API);
         const json=await data.json();
-        // console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        // console.log(json?.data?.cards[2].card.card);
         setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }

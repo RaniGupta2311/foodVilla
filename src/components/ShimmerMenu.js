@@ -15,8 +15,8 @@ const ShimmerMenu=()=>{
             </div>
             {/* <h1>Shimmer Menu Loading</h1> */}
             <div className="flex flex-col justify-center items-center w-lg md:max-w-3xl pl-1 pr-1">
-                {Array(5).fill("").map((item)=>{
-                    return <div className="flex border-t-2 mt-2 pt-4">
+                {Array(5).fill("").map((item,index)=>{
+                    return <div key={index} className="flex border-t-2 mt-2 pt-4">
                         <div className="w-[16rem] md:w-[26rem] h-36 ">
                             <h1 className="w-44 h-8 bg-gray-200 mb-2 rounded-md"></h1>
                             <p className="w-12 h-8 bg-gray-200 mb-3 rounded-md"></p>

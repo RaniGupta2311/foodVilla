@@ -1,26 +1,15 @@
-import {useState,useEffect} from "react";
+
 import { useParams } from "react-router-dom";
-import { IMG_CDN_URL, RESTAURANT_MENU_API } from "../utils/Constants";
+import { IMG_CDN_URL } from "../utils/Constants";
 import FoodItemCard from "./FoodItemCard";
 import ShimmerMenu from "./ShimmerMenu";
+import useRestaurant from "../utils/hooks/useRestaurant";
 const RestaurantMenu=()=>{
-    const [restaurantDetail,setRestaurantDetail]=useState([]);
     // read dynamic url
     const params=useParams();
-    const {resId}=params
+    const {resId}=params;
     // console.log(resId);
-    
-    useEffect(()=>{
-        getRestaurantInfo();
-    },[])
-
-    async function getRestaurantInfo(){
-        const data=await fetch(RESTAURANT_MENU_API+resId);
-        const json=await data.json();
-        // console.log(json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards[0].card.info);
-        setRestaurantDetail(json.data.cards);
-    }
-
+    const restaurantDetail=useRestaurant(resId);
     // const {name,cuisines,areaName,avgRating,sla,costForTwoMessage}=restaurantDetail[0].card.card.info;
     if(!restaurantDetail) return null;
 

@@ -13,10 +13,17 @@ class ProfileClass extends React.Component{
                 
             }
         }
-        // console.log("constructor");
+        console.log("constructor");
+    }
+    componentDidUpdate(){
+      console.log("componentDidUpdate");
     }
     async componentDidMount(){
-        // console.log("componentDidMount");
+        console.log("componentDidMount");
+        this.timer=setInterval(()=>{
+          console.log("Namaste Food");
+        },1000)
+        
         const data=await fetch(GITHUB_USER_INFO_API);
         const json=await data.json();
         // console.log(json);
@@ -24,8 +31,12 @@ class ProfileClass extends React.Component{
             userInfo:json
         })
     }
+    componentWillUnmount(){
+      console.log("componentWillUnmount");
+      clearInterval(this.timer)
+    }
     render(){
-        // console.log("render");
+        console.log("render");
         const {name,avatar_url,bio,company,location}=this.state.userInfo;
         return (
             <div className="flex justify-center mt-5 mb-20">
