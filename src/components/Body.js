@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 import { ALL_RESTAURANT_API, AllRestaurantList } from "../utils/Constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/hooks/useOnline";
 const Body=()=>{
     const [searchText,setSearchText]=useState();
     const [allRestaurants,setAllRestaurants]=useState([]);
@@ -25,6 +26,13 @@ const Body=()=>{
         setFilteredRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
 
+    const isOnline=useOnline();
+    if(!isOnline){
+        return <div className="p-4 absolute top-24 bg-gray-100 w-[100%] min-h-[calc(100vh-6rem)] flex items-center justify-center">
+            <h1 className="text-xl">❌ Seems you are offline!
+            <br/> Please check your internet connection</h1>
+        </div>
+    }
     if(!allRestaurants) return null;
     // if(!filteredRestaurant?.length===0) return <h1>No Restaurant match your filter</h1>
 

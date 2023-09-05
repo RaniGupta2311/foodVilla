@@ -1,6 +1,6 @@
 import {useState,useEffect} from "react";
 import { RESTAURANT_MENU_API } from "../Constants";
-const useRestaurant=()=>{
+const useRestaurant=(resId)=>{
     const [restaurantDetail,setRestaurantDetail]=useState([]);
     useEffect(()=>{
         getRestaurantInfo();
