@@ -1,10 +1,13 @@
 {
   "name": "namaste-food",
+  "homepage":"https://RaniGupta2311.github.io/namaste-food",
   "version": "1.0.0",
   "description": "This is food ordering app",
+  "private":"false",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "build": "parcel build index.html --public-url .",
+    "deploy":"gh-pages -d dist",
     "test": "jest"
   },
   "repository": {
@@ -16,7 +19,6 @@
   "bugs": {
     "url": "https://github.com/RaniGupta2311/namaste-food/issues"
   },
-  "homepage": "https://github.com/RaniGupta2311/namaste-food#readme",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

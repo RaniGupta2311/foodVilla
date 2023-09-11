@@ -1,4 +1,4 @@
-import SelfImage from "../utils/images/selfImage.jpg";
+
 import LinkedIn from "../utils/images/linkedin.webp";
 import Github from "../utils/images/github.webp";
 import Gmail from "../utils/images/gmail.webp";
